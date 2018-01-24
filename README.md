@@ -27,6 +27,10 @@ driver.implicitly_wait(10)
 
 driver.get(TEST_URL)
 
+...
+
+driver.quit()
+
 ```
 
 ## Remote Connection
@@ -35,6 +39,11 @@ To utilise the Selenium grid from a remote machine, first
 create an SSH tunnel to the Selenium grid server.
 
 ```bash
-ssh uhlbriccsapp02 -L 4444:127.0.0.1:4444
+ssh uhlbriccsapp02 -L 4444:127.0.0.1:4444 -N
 ```
 
+## Certificate Errors
+
+If the target site has a self-signed certiifcate, and hence would
+produce a certificate error, you will have to define the chrome
+browser in the `desired_capabilities`.
