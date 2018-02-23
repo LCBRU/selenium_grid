@@ -3,6 +3,7 @@
 version: '2'
 services:
   firefox:
+    restart: always
     image: selenium/node-firefox:3.8.1-erbium
     volumes:
       - /dev/shm:/dev/shm
@@ -12,6 +13,7 @@ services:
       HUB_HOST: hub
 
   chrome:
+    restart: always
     image: selenium/node-chrome:3.8.1-erbium
     volumes:
       - /dev/shm:/dev/shm
@@ -21,6 +23,7 @@ services:
       HUB_HOST: hub
 
   hub:
+    restart: always
     image: selenium/hub:3.8.1-erbium
     ports:
       - "4444:4444"
